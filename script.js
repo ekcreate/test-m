@@ -10,7 +10,8 @@ const pageNames = {
   news: 'Новости',
   blog: 'Блог',
   faq: 'Вопросы-Ответы',
-  contacts: 'Контакты'
+  contacts: 'Контакты',
+  partners: 'Партнеры'
 };
 
 function setBreadcrumb(baseText, sectionText) {

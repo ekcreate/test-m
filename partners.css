@@ -1,0 +1,25 @@
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.partner-card {
+  background: var(--white);
+  border: 1px solid #e9ecef;
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s, box-shadow .2s;
+  min-height: 120px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
