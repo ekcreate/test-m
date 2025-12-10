@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #f8f9fa;
+  --bg-alt: #f1f3f5;
+  --text: #212529;
+  --muted: #6c757d;
+  --primary: #0d6efd;
+  --primary-dark: #0b5ed7;
+  --accent: #dc3545;
+  --accent-dark: #c82333;
+  --white: #fff;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  --radius: 10px;
+  --max-width: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 20%, rgba(13,110,253,0.08), transparent 35%), radial-gradient(circle at 80% 0%, rgba(220,53,69,0.08), transparent 30%), linear-gradient(180deg, #f8fbff 0%, #f2f5fb 100%);
+  line-height: 1.6;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-dark); }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { margin: 0 0 12px; line-height: 1.3; color: #1c2734; }
+p { margin: 0 0 12px; }
+
+.container { width: min(100%, var(--max-width)); margin: 0 auto; padding: 0 20px; }
+
+header { position: sticky; top: 0; z-index: 1100; background: linear-gradient(120deg, rgba(255,255,255,0.92), rgba(245,249,255,0.92)); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-bottom: 1px solid rgba(13,110,253,0.08); }
+.top-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 14px 0; gap: 12px; }
+.logo { font-weight: 800; font-size: 24px; color: var(--primary); letter-spacing: 0.2px; }
+
+nav { border-top: 1px solid #e9ecef; }
+.main-nav { display: flex; flex-wrap: wrap; gap: 10px; padding: 12px 0; list-style: none; margin: 0; }
+.main-nav > li { position: relative; }
+.main-nav a { padding: 8px 12px; display: inline-block; border-radius: 6px; color: var(--text); font-weight: 600; }
+.main-nav a:hover { background: var(--bg-alt); }
+
+.section { padding: 60px 0; }
+.section-title { text-align: center; margin-bottom: 24px; }
+
+footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
+.footer-title { font-weight: 700; margin-bottom: 12px; color: #fff; }
+.footer a { color: #d8dee9; }
+.footer a:hover { color: #fff; }
+.footer-cta { background: #172335; padding: 16px; border-radius: var(--radius); }
+.social { display: flex; gap: 10px; }
