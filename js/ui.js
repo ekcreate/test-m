@@ -1,70 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Offcanvas menu
-  function initOffcanvas() {
-    const nav = document.querySelector('nav .main-nav');
-    if (!nav) return;
 
-    let backdrop = document.querySelector('.offcanvas-backdrop');
-    if (!backdrop) {
-      backdrop = document.createElement('div');
-      backdrop.className = 'offcanvas-backdrop';
-      document.body.appendChild(backdrop);
-    }
+  // New mobile navigation
+  function initMobileNav() {
+    const toggleButtons = document.querySelectorAll('.nav-toggle-btn');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+    const body = document.body;
 
-    let panel = document.querySelector('.offcanvas-panel');
-    if (!panel) {
-      panel = document.createElement('div');
-      panel.className = 'offcanvas-panel';
-      panel.innerHTML = `
-        <div class="offcanvas-header">
-          <h3>Меню</h3>
-          <button class="offcanvas-close" aria-label="Закрыть">×</button>
-        </div>
-        <div class="offcanvas-nav"></div>
-        <div class="offcanvas-cta">
-          <button class="pill-btn" type="button" data-open-modal="lead-modal">Оставить заявку</button>
-          <a class="ghost-btn" href="tel:+74951234567">Позвонить</a>
-        </div>
-        <div class="offcanvas-contacts">
-          <span class="contact-chip phone"><img src="assets/icons/phone.svg" alt="" width="16" height="16"><a href="tel:+74951234567">+7 (495) 123-45-67</a></span>
-        </div>
-      `;
-      document.body.appendChild(panel);
-    }
+    if (!mobileNavOverlay || toggleButtons.length === 0) return;
 
-    const navContainer = panel.querySelector('.offcanvas-nav');
-    navContainer.innerHTML = '';
-    const navClone = nav.cloneNode(true);
-    navClone.classList.remove('main-nav');
-    navContainer.appendChild(navClone);
-
-    function closeOffcanvas() {
-      panel.classList.remove('open');
-      backdrop.classList.remove('show');
-    }
-    function openOffcanvas() {
-      panel.classList.add('open');
-      backdrop.classList.add('show');
-    }
-
-    document.querySelectorAll('.nav-toggle').forEach(btn => {
-      btn.addEventListener('click', openOffcanvas);
-    });
-    backdrop.addEventListener('click', closeOffcanvas);
-    panel.querySelector('.offcanvas-close')?.addEventListener('click', closeOffcanvas);
-
-    // Add event listener to close offcanvas when a link inside it is clicked
-    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeOffcanvas));
-
-    const offcanvasCtaButton = panel.querySelector('.offcanvas-cta button[data-open-modal]');
-    if (offcanvasCtaButton) {
-      offcanvasCtaButton.addEventListener('click', () => {
-        closeOffcanvas();
-        // The main modal listener will handle opening the modal
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        mobileNavOverlay.classList.toggle('open');
+        button.setAttribute('aria-expanded', !isExpanded);
+        body.style.overflow = mobileNavOverlay.classList.contains('open') ? 'hidden' : '';
       });
+    });
+
+    // Add event listener to close overlay when a link inside it is clicked
+    mobileNavOverlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobileNavOverlay.classList.remove('open');
+        body.style.overflow = '';
+        toggleButtons.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    }));
+
+    // Add event listener to close overlay when cta button inside it is clicked
+    const ctaButton = mobileNavOverlay.querySelector('.pill-btn');
+    if(ctaButton) {
+        ctaButton.addEventListener('click', () => {
+            mobileNavOverlay.classList.remove('open');
+            body.style.overflow = '';
+            toggleButtons.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+        });
     }
   }
-  initOffcanvas();
+  initMobileNav();
+
+  // Set active navigation link
+  function setActiveNavLink() {
+      const currentPage = document.body.dataset.page;
+      if (!currentPage) return;
+
+      const navLinks = document.querySelectorAll('.main-nav a, .mobile-nav a');
+      navLinks.forEach(link => {
+          const linkPage = new URL(link.href).pathname.split('/').pop().replace('.html', '');
+          const pageName = (linkPage === 'index' || linkPage === '') ? 'home' : linkPage;
+          if (pageName === currentPage) {
+              link.classList.add('active');
+          }
+      });
+  }
+  setActiveNavLink();
+
+  // Floating messengers
+  function initFloatingMessengers() {
+    const messengers = document.querySelector('.floating-messengers');
+    if (!messengers) return;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        messengers.classList.add('show');
+      } else {
+        messengers.classList.remove('show');
+      }
+    });
+  }
+  initFloatingMessengers();
 
   // Modal handling
   function openModal(id) {
