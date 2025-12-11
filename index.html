@@ -5,46 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Тест-М — Сертификация и декларирование продукции</title>
   <meta name="description" content="Тест-М — сертификация, декларирование, регистрация и подготовка нормативной документации для продукции. Бесплатная консультация и быстрые сроки.">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="home">
 <header class="site-header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">Тест-М</div>
-      <nav class="main-nav" aria-label="Основная навигация">
-        <ul>
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="about.html">О компании</a></li>
-          <li><a href="services.html">Услуги</a></li>
-          <li><a href="price.html">Прайс-лист</a></li>
-          <li><a href="regulations.html">Нормативная база</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="blog.html">Блог</a></li>
-          <li><a href="faq.html">Вопросы-Ответы</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
-        <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
-        <button class="nav-toggle-btn" aria-label="Открыть меню" aria-expanded="false">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+  <div class="header-top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <address class="top-bar-address">г. Москва, ул. Примерная, д. 10</address>
+        <div class="top-bar-contacts">
+          <a href="tel:+74951234567" class="top-bar-phone">+7 (495) 123-45-67</a>
+          <div class="social-icons">
+            <a href="#" aria-label="WhatsApp"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a>
+            <a href="#" aria-label="Telegram"><img src="assets/icons/telegram.svg" alt="Telegram"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container">
+      <div class="main-header-content">
+        <a href="index.html" class="logo">Тест-М</a>
+        <nav class="main-nav" aria-label="Основная навигация">
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="price.html">Прайс-лист</a></li>
+            <li><a href="regulations.html">Нормативная база</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="faq.html">Вопросы-Ответы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
+          <button class="nav-toggle-btn" aria-label="Открыть меню" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </header>
+
 <div class="mobile-nav-overlay">
   <div class="mobile-nav-header">
     <div class="logo">Тест-М</div>
-    <button class="nav-toggle-btn close" aria-label="Закрыть меню" aria-expanded="true">
-      &times;
-    </button>
+    <button class="nav-toggle-btn close" aria-label="Закрыть меню" aria-expanded="true">&times;</button>
   </div>
   <nav class="mobile-nav">
     <ul>
@@ -59,8 +74,8 @@
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
     <div class="mobile-nav-cta">
-        <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
-        <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
+      <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
+      <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
     </div>
   </nav>
 </div>

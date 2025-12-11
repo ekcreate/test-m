@@ -5,39 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Услуги и сертификация — Тест-М</title>
   <meta name="description" content="Услуги по сертификации, декларированию, госрегистрации, технической документации, внешней торговле и испытаниям.">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">\n  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700<link rel="stylesheet" href="css/main.css">display=swap" rel="stylesheet">\n  <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="services">
 <header class="site-header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">Тест-М</div>
-      <nav class="main-nav" aria-label="Основная навигация">
-        <ul>
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="about.html">О компании</a></li>
-          <li><a href="services.html">Услуги</a></li>
-          <li><a href="price.html">Прайс-лист</a></li>
-          <li><a href="regulations.html">Нормативная база</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="blog.html">Блог</a></li>
-          <li><a href="faq.html">Вопросы-Ответы</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
-        <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
-        <button class="nav-toggle-btn" aria-label="Открыть меню" aria-expanded="false">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-    </div>
-  </div>
+  <div class="header-top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <address class="top-bar-address">г. Москва, ул. Примерная, д. 10</address>
+        <div class="top-bar-contacts">
+          <a href="tel:+74951234567" class="top-bar-phone">+7 (495) 123-45-67</a>
+          <div class="social-icons">
+            <a href="#" aria-label="WhatsApp"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a>
+            <a href="#" aria-label="Telegram"><img src="assets/icons/telegram.svg" alt="Telegram"></a>
+  <div class="header-main">
+    <div class="container">
+      <div class="main-header-content">
+        <a href="index.html" class="logo">Тест-М</a>
+        <nav class="main-nav" aria-label="Основная навигация">
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="price.html">Прайс-лист</a></li>
+            <li><a href="regulations.html">Нормативная база</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="faq.html">Вопросы-Ответы</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
+          <button class="nav-toggle-btn" aria-label="Открыть меню" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 </header>
 <div class="mobile-nav-overlay">
   <div class="mobile-nav-header">
@@ -45,7 +49,6 @@
     <button class="nav-toggle-btn close" aria-label="Закрыть меню" aria-expanded="true">
       &times;
     </button>
-  </div>
   <nav class="mobile-nav">
     <ul>
       <li><a href="index.html">Главная</a></li>
@@ -61,9 +64,7 @@
     <div class="mobile-nav-cta">
         <button class="pill-btn" data-open-modal="lead-modal" type="button">Оставить заявку</button>
         <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
-    </div>
   </nav>
-</div>
 
   <main>
     <section class="banner">
@@ -74,9 +75,6 @@
           <div class="hero-actions">
             <button class="pill-btn" type="button" data-open-modal="lead-modal">Получить консультацию</button>
             <a class="ghost-btn" href="#cert-decl">К услугам</a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="section" id="services">
@@ -84,57 +82,28 @@
         <div class="section-title">
           <p class="badge">Услуги</p>
           <h2>Категории</h2>
-        </div>
         <div class="services-menu" aria-label="категории услуг">
           <button class="active" data-target="cert-decl">Сертификация и декларирование</button>
           <button data-target="state-reg">Гос. регистрация</button>
           <button data-target="tech-docs">Тех. документация</button>
           <button data-target="foreign-trade">Внешняя торговля</button>
           <button data-target="tests">Испытания и протоколы</button>
-        </div>
         <div class="services-content">
           <div class="service-category active" id="cert-decl">
             <h3>Сертификация и декларирование</h3>
             <div class="grid-3">
-              <div class="card service-item" id="svc-cert-trts"><h4>Сертификаты ТР ТС / ЕАЭС</h4><p>Полное сопровождение получения сертификатов.</p></div>
-              <div class="card service-item" id="svc-decl-trts"><h4>Декларации ТР ТС / ЕАЭС</h4><p>Подготовка, регистрация, консультация по схемам.</p></div>
-              <div class="card service-item" id="svc-decl-gostr"><h4>Декларации ГОСТ Р</h4><p>Оформление деклараций национального образца.</p></div>
-              <div class="card service-item" id="svc-fire"><h4>Сертификаты и декларации пожарной безопасности</h4><p>Соответствие требованиям пожарной безопасности.</p></div>
-              <div class="card service-item" id="svc-voluntary"><h4>Добровольные сертификаты</h4><p>Подтверждение качества в добровольных системах.</p></div>
-              <div class="card service-item" id="svc-waiver"><h4>Отказные письма</h4><p>Подтверждаем неприменимость обязательной оценки.</p></div>
-            </div>
-          </div>
           <div class="service-category" id="state-reg">
             <h3>Государственная регистрация</h3>
             <div class="grid-3">
-              <div class="card service-item" id="svc-sgr"><h4>Свидетельство о госрегистрации (СГР)</h4><p>Оформление СГР для РФ.</p></div>
-              <div class="card service-item" id="svc-hygienic"><h4>Экспертное (гигиеническое) заключение</h4><p>Сопровождение и получение заключений.</p></div>
-            </div>
-          </div>
           <div class="service-category" id="tech-docs">
             <h3>Техническая документация</h3>
             <div class="grid-3">
-              <div class="card service-item" id="svc-tu"><h4>Разработка ТУ</h4><p>Создание технических условий.</p></div>
-              <div class="card service-item" id="svc-pb"><h4>Паспорт безопасности (ПБ)</h4><p>Подготовка паспортов безопасности.</p></div>
-            </div>
-          </div>
           <div class="service-category" id="foreign-trade">
             <h3>Для внешней торговли</h3>
             <div class="grid-3">
-              <div class="card service-item" id="svc-st1"><h4>Сертификат происхождения СТ-1</h4><p>Подтверждение происхождения продукции.</p></div>
-              <div class="card service-item" id="svc-ozone"><h4>Разрешение на ввоз/вывоз озоноразрушающих веществ</h4><p>Сопровождение получения разрешений.</p></div>
-              <div class="card service-item" id="svc-fsb"><h4>Нотификация ФСБ РФ</h4><p>Подготовка и регистрация уведомлений.</p></div>
-            </div>
-          </div>
           <div class="service-category" id="tests">
             <h3>Испытания и протоколы</h3>
             <div class="grid-3">
-              <div class="card service-item" id="svc-nrb"><h4>Протокол испытаний НРБ (радиация)</h4><p>Испытания на радиационную безопасность.</p></div>
-              <div class="card service-item" id="svc-alcohol"><h4>Протокол испытаний на спиртосодержание</h4><p>Лабораторные испытания продукции.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   </main>
 
@@ -144,7 +113,6 @@
         <h3 class="footer-title">Нужна консультация?</h3>
         <p>Оставьте контакты, и мы свяжемся в течение рабочего дня.</p>
         <button class="pill-btn" type="button" data-open-modal="lead-modal">Заказать консультацию</button>
-      </div>
       <div>
         <h3 class="footer-title">Меню</h3>
         <div class="main-menu-footer">
@@ -157,8 +125,6 @@
           <p><a href="blog.html">Блог</a></p>
           <p><a href="faq.html">Вопросы-Ответы</a></p>
           <p><a href="contacts.html">Контакты</a></p>
-        </div>
-      </div>
       <div>
         <h3 class="footer-title">Услуги</h3>
         <p><a href="#cert-decl">Сертификация и декларирование</a></p>
@@ -166,7 +132,6 @@
         <p><a href="#tech-docs">Техдокументация</a></p>
         <p><a href="#foreign-trade">Внешняя торговля</a></p>
         <p><a href="#tests">Испытания</a></p>
-      </div>
       <div>
         <h3 class="footer-title">Контакты</h3>
         <p>Тел.: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
@@ -175,15 +140,10 @@
         <div class="social">
           <a href="#">WhatsApp</a>
           <a href="#">Telegram</a>
-        </div>
         <div class="legal-links-footer" style="margin-top:10px;">
           <a href="#">Политика конфиденциальности</a> · <a href="#">Карта сайта</a>
-        </div>
-      </div>
-    </div>
     <div class="container" style="margin-top:20px; font-size: 14px; color: #98a2b3;">
       © 2025 Тест-М. Все права защищены.
-    </div>
   </footer>
 
   <div class="modal-backdrop" id="lead-modal" aria-hidden="true">
@@ -191,7 +151,6 @@
       <div class="modal-header">
         <h3 id="lead-modal-title">Оставить заявку</h3>
         <button class="close-btn" type="button" aria-label="Закрыть" data-close-modal>×</button>
-      </div>
       <form>
         <input type="text" name="name" placeholder="Имя" required aria-label="Имя">
         <input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон">
@@ -199,8 +158,6 @@
         <textarea name="message" placeholder="Ваш запрос" aria-label="Сообщение"></textarea>
         <button type="submit">Отправить</button>
       </form>
-    </div>
-  </div>
 
   <button class="back-to-top" aria-label="Наверх" id="back-to-top">↑</button>
 
@@ -211,7 +168,6 @@
     <a href="#" class="whatsapp" aria-label="WhatsApp">
       <img src="assets/icons/whatsapp.svg" alt="" width="24" height="24">
     </a>
-  </div>
   <script src="js/main.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/animations.js"></script>
