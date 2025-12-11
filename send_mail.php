@@ -1,74 +1,82 @@
 <?php
+// Устанавливаем заголовок, чтобы браузер понимал, что это JSON
+header('Content-Type: application/json; charset=utf-8');
+
+// Функция для отправки ответа
+function send_json_response($status, $message) {
+    http_response_code($status === 'success' ? 200 : 400);
+    echo json_encode(['status' => $status, 'message' => $message], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // === КОНФИГУРАЦИЯ ===
     $to = "your-email@example.com"; // ЗАМЕНИТЕ НА ВАШ EMAIL
     $subject_prefix = "Новая заявка с сайта";
-    // Определяем поля, которые должны быть в письме обязательно.
-    // Если в форме есть поле с атрибутом name="name", name="phone" или name="email", скрипт проверит, что оно не пустое.
-    $required_fields = ['name', 'phone', 'email'];
+    $from_email_default = "noreply@" . (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'site.com');
+    $from_name_default = "Уведомление с сайта";
+
+    // Словарь для перевода полей на русский язык
+    $field_translations = [
+        'name' => 'Имя',
+        'user_name' => 'Имя',
+        'phone' => 'Телефон',
+        'user_phone' => 'Телефон',
+        'email' => 'Email',
+        'user_email' => 'Email',
+        'request' => 'Запрос',
+        'message' => 'Сообщение',
+        'form_name' => 'Форма',
+    ];
     // === КОНЕЦ КОНФИГУРАЦИИ ===
 
-    $email_content = "";
-    $form_name = "Неизвестная форма";
-    $from_email = "noreply@" . (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'site.com');
-    $from_name = "Уведомление с сайта";
-
-    // Проверяем обязательные поля, если они существуют в $_POST
-    foreach ($required_fields as $field) {
-        if (isset($_POST[$field]) && empty(trim($_POST[$field]))) {
-            http_response_code(400);
-            echo "Пожалуйста, заполните обязательное поле: " . htmlspecialchars($field);
-            exit;
-        }
+    // Проверяем, что есть хоть какие-то данные
+    if (empty($_POST)) {
+        send_json_response('error', 'Нет данных для отправки.');
     }
 
-    // Проверяем валидность email, если он есть
-    if (isset($_POST['email']) && !filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
-        echo "Пожалуйста, введите корректный email.";
-        exit;
+    // Проверяем обязательное поле phone, если оно есть
+    if (isset($_POST['phone']) && empty(trim($_POST['phone']))) {
+        send_json_response('error', 'Пожалуйста, заполните поле "Телефон".');
     }
 
-    // Устанавливаем имя и email отправителя для заголовков письма
-    if (!empty($_POST['name'])) {
-        $from_name = strip_tags(trim($_POST["name"]));
-    }
-    if(!empty($_POST['email'])) {
-        $from_email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+    // Валидация email, если он есть
+    if (isset($_POST['email']) && !empty(trim($_POST['email'])) && !filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL)) {
+        send_json_response('error', 'Пожалуйста, введите корректный email.');
     }
 
-    // Устанавливаем название формы из скрытого поля, если оно есть
-    if (!empty($_POST['form_name'])) {
-      $form_name = strip_tags(trim($_POST['form_name']));
-    }
+    $from_name = !empty($_POST['name']) ? strip_tags(trim($_POST['name'])) : $from_name_default;
+    $from_email = !empty($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : $from_email_default;
+    $form_name = !empty($_POST['form_name']) ? strip_tags(trim($_POST['form_name'])) : "Неизвестная форма";
 
-    $email_content .= "Получено новое сообщение с формы '$form_name':\n\n";
+    $email_content = "Получено новое сообщение с формы '$form_name':\n\n";
 
     // Собираем все поля из формы в тело письма
     foreach ($_POST as $key => $value) {
-        // Пропускаем служебные поля
-        if ($key == 'form_name' || $key == 'submit') {
+        if ($key == 'form_name' || empty(trim($value))) {
             continue;
         }
-        $key_formatted = ucfirst(str_replace(['_', '-'], ' ', $key));
+        // Используем перевод из словаря или оставляем как есть
+        $key_formatted = isset($field_translations[$key]) ? $field_translations[$key] : ucfirst($key);
         $email_content .= htmlspecialchars($key_formatted) . ": " . htmlspecialchars(strip_tags(trim($value))) . "\n";
     }
 
     $subject = "$subject_prefix: $form_name";
-    $email_headers = "From: $from_name <$from_email>";
-    $email_headers .= "\r\nReply-To: $from_email";
+    $email_headers = "From: \"$from_name\" <$from_email_default>" . "\r\n" .
+                     "Reply-To: $from_email";
 
     // Отправка письма
     if (mail($to, $subject, $email_content, $email_headers)) {
-        http_response_code(200);
-        echo "Спасибо! Ваше сообщение отправлено.";
+        send_json_response('success', 'Спасибо! Ваше сообщение успешно отправлено.');
     } else {
+        // Ошибка на стороне сервера
         http_response_code(500);
-        echo "Что-то пошло не так, и мы не смогли отправить ваше сообщение.";
+        send_json_response('error', 'Что-то пошло не так, и мы не смогли отправить ваше сообщение.');
     }
 
 } else {
+    // Если кто-то пытается зайти на скрипт напрямую
     http_response_code(403);
-    echo "Произошла ошибка при отправке формы. Попробуйте еще раз.";
+    send_json_response('error', 'Доступ запрещен.');
 }
 ?>
