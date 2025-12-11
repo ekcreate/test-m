@@ -39,10 +39,14 @@ initBreadcrumb();
 function injectFloatingMessengers() {
   if (document.querySelector('.floating-messengers')) return;
   const wrap = document.createElement('div');
-  wrap.className = 'floating-messengers';
+  wrap.className = 'floating-messengers messengers';
   wrap.innerHTML = `
-    <a class="whatsapp" href="#" aria-label="WhatsApp">WA</a>
-    <a class="telegram" href="#" aria-label="Telegram">TG</a>
+    <a class="messenger-icon wa" href="https://wa.me/74951234567" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a class="messenger-icon tg" href="https://t.me/username" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
+        <i class="fa-brands fa-telegram"></i>
+    </a>
   `;
   document.body.appendChild(wrap);
 }

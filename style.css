@@ -199,7 +199,6 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
   .messengers a.icon-only { width: 42px; height: 42px; }
   .banner { padding: 50px 0 36px; }
   .section { padding: 44px 0; }
-  .floating-messengers { right: 10px; top: auto; bottom: 80px; flex-direction: row; }
 }
 
 @media (max-width: 960px) {

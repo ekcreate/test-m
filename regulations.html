@@ -23,11 +23,6 @@
       <div class="contacts">
         <span class="contact-chip phone"><i class="fa-solid fa-phone"></i><a href="tel:+74951234567">+7 (495) 123-45-67</a></span>
       </div>
-      <div class="messengers" aria-label="мессенджеры">
-        <a class="icon-only" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a class="icon-only" href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-      </div>
-      <button class="pill-btn" type="button" data-open-modal="lead-modal">Оставить заявку</button>
     </div>
   </div>
   <header id="top">
@@ -44,13 +39,17 @@
         <a class="contact-phone-icon" href="tel:+74951234567" aria-label="Позвонить">
           <i class="fa-solid fa-phone"></i>
         </a>
-        <button class="pill-btn" type="button" data-open-modal="lead-modal">Оставить заявку</button>
+        <button class="pill-btn" id="feedback-modal-trigger" type="button">Оставить заявку</button>
       </div>
       <div class="mobile-nav-right">
         <div class="mobile-header-controls">
           <a class="contact-phone-icon" href="tel:+74951234567" aria-label="Позвонить">
-            <i class="fa-solid fa-phone"></i>
+          <i class="fa-solid fa-phone"></i>
           </a>
+          <div class="messengers" aria-label="мессенджеры">
+            <a class="icon-only" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="icon-only" href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          </div>
           <button class="pill-btn" type="button" data-open-modal="lead-modal">Заявка</button>
         </div>
         <button class="nav-toggle" aria-label="Открыть меню"><i class="fa-solid fa-bars"></i></button>
@@ -168,9 +167,13 @@
         <p>Тел.: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
         <p>Email: <a href="mailto:info@test-m.ru">info@test-m.ru</a></p>
         <p>Адрес: Москва, ул. Примерная, 10</p>
-        <div class="social">
-          <a href="#">WhatsApp</a>
-          <a href="#">Telegram</a>
+        <div class="social messengers">
+          <a class="messenger-icon wa" href="https://wa.me/74951234567" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a class="messenger-icon tg" href="https://t.me/username" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
         </div>
         <div class="legal-links-footer" style="margin-top:10px;">
           <a href="#">Политика конфиденциальности</a> · <a href="#">Карта сайта</a>
