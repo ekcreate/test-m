@@ -94,7 +94,8 @@
         </div>
         <div class="card quick-form-section" aria-label="быстрая заявка">
           <h3>Оставьте заявку для бесплатной консультации</h3>
-          <form>
+          <form action="send_mail.php" method="POST">
+            <input type="hidden" name="form_name" value="Быстрая консультация (главная)">
             <input type="text" name="name" placeholder="Ваше имя" required aria-label="Имя">
             <input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон">
             <textarea name="message" placeholder="Опишите запрос" aria-label="Сообщение"></textarea>
@@ -296,7 +297,8 @@
         </div>
         <div class="card price-content">
           <p>Мы рассчитываем стоимость индивидуально по описанию продукции, выбранной схеме и объему испытаний. Оставьте заявку — вышлем расчет и сроки.</p>
-          <form>
+          <form action="send_mail.php" method="POST">
+            <input type="hidden" name="form_name" value="Запрос расчета (главная)">
             <input type="text" name="product" placeholder="Продукция / код ТН ВЭД" required aria-label="Продукция">
             <input type="email" name="email" placeholder="Email для ответа" required aria-label="Email">
             <textarea name="details" placeholder="Кратко опишите продукцию и задачу" aria-label="Детали"></textarea>
@@ -484,7 +486,8 @@
           </div>
           <div class="card contact-form-section">
             <h3>Форма обратной связи</h3>
-            <form>
+            <form action="send_mail.php" method="POST">
+              <input type="hidden" name="form_name" value="Форма обратной связи (главная)">
               <input type="text" name="name" placeholder="Ваше имя" required aria-label="Имя">
               <input type="email" name="email" placeholder="Email" required aria-label="Email">
               <input type="text" name="subject" placeholder="Тема" aria-label="Тема">
@@ -559,7 +562,8 @@
         <h3 id="lead-modal-title">Оставить заявку</h3>
         <button class="close-btn" type="button" aria-label="Закрыть" data-close-modal>×</button>
       </div>
-      <form>
+      <form action="send_mail.php" method="POST">
+        <input type="hidden" name="form_name" value="Модальная форма заявки">
         <input type="text" name="name" placeholder="Имя" required aria-label="Имя">
         <input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон">
         <input type="email" name="email" placeholder="Email" aria-label="Email">

@@ -85,7 +85,8 @@
         </div>
         <div class="card price-content">
           <p>Расчет стоимости выполняем индивидуально на основании описания продукции, кода ТН ВЭД, выбранной схемы и объема испытаний. Оставьте заявку — отправим предложение и сроки.</p>
-          <form>
+          <form action="send_mail.php" method="POST">
+            <input type="hidden" name="form_name" value="Запрос расчета (прайс-лист)">
             <input type="text" name="product" placeholder="Продукция / код ТН ВЭД" required aria-label="Продукция">
             <input type="email" name="email" placeholder="Email для ответа" required aria-label="Email">
             <textarea name="details" placeholder="Кратко опишите продукцию и задачу" aria-label="Детали"></textarea>
@@ -154,7 +155,8 @@
         <h3 id="lead-modal-title">Оставить заявку</h3>
         <button class="close-btn" type="button" aria-label="Закрыть" data-close-modal>×</button>
       </div>
-      <form>
+      <form action="send_mail.php" method="POST">
+        <input type="hidden" name="form_name" value="Модальная форма (прайс-лист)">
         <input type="text" name="name" placeholder="Имя" required aria-label="Имя">
         <input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон">
         <input type="email" name="email" placeholder="Email" aria-label="Email">

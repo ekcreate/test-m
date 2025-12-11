@@ -94,7 +94,8 @@
           </div>
           <div class="card contact-form-section">
             <h3>Форма обратной связи</h3>
-            <form>
+            <form action="send_mail.php" method="POST">
+              <input type="hidden" name="form_name" value="Обратная связь (контакты)">
               <input type="text" name="name" placeholder="Ваше имя" required aria-label="Имя">
               <input type="email" name="email" placeholder="Email" required aria-label="Email">
               <input type="text" name="subject" placeholder="Тема" aria-label="Тема">
@@ -169,7 +170,8 @@
         <h3 id="lead-modal-title">Оставить заявку</h3>
         <button class="close-btn" type="button" aria-label="Закрыть" data-close-modal>×</button>
       </div>
-      <form>
+      <form action="send_mail.php" method="POST">
+        <input type="hidden" name="form_name" value="Модальная форма (контакты)">
         <input type="text" name="name" placeholder="Имя" required aria-label="Имя">
         <input type="tel" name="phone" placeholder="Телефон" required aria-label="Телефон">
         <input type="email" name="email" placeholder="Email" aria-label="Email">
