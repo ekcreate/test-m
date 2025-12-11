@@ -226,6 +226,12 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
     font-size: 14px;
   }
 
+  .mobile-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .nav-toggle {
     display: inline-flex;
     padding: 6px;
