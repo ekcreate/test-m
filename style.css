@@ -199,11 +199,16 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
   .top-bar { gap: 8px; }
   .contacts { flex-direction: column; align-items: flex-start; gap: 6px; }
   .logo { font-size: 20px; }
-  .messengers { width: 100%; gap: 10px; }
+  .messengers {
+      padding-right: 10px;
+      gap: 10px;
+  }
   .pill-btn { width: 100%; text-align: center; }
   .contact-chip.phone { display: none; }
   .contact-phone-icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; background: #0b5ed7; color: #fff; box-shadow: 0 10px 22px rgba(13,110,253,0.28); }
-  .messengers a { flex: 1; justify-content: center; }
+  .messengers a {
+      justify-content: center;
+  }
   .messengers a.icon-only { width: 42px; height: 42px; }
   .banner { padding: 50px 0 36px; }
   .section { padding: 44px 0; }
@@ -294,7 +299,8 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
 }
 
 .logo img {
-  height: 28px;
+  height: 32px;
   width: auto;
   vertical-align: middle;
+  margin-left: 5px;
 }
