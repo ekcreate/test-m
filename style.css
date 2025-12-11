@@ -199,12 +199,26 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
 }
 
 @media (max-width: 960px) {
-  nav .container { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
-  .nav-toggle { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; }
-  .main-nav { display: none; flex-direction: column; width: 100%; padding: 0; }
-  .main-nav.open { display: flex; }
-  .main-nav > li { width: 100%; }
-  .main-nav a { width: 100%; padding: 12px; }
+  .contact-bar {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    padding: 6px;
+    border: none;
+    background: transparent;
+  }
+
+  .nav-toggle svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  nav {
+    display: none;
+  }
+
   .dropdown-menu { position: static; box-shadow: none; border: 1px solid #e9ecef; width: 100%; }
   .dropdown-menu .dropdown-submenu { border-left: none; padding-left: 0; }
 }
