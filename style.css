@@ -211,7 +211,7 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
   }
   .pill-btn { width: 100%; text-align: center; }
   .contact-chip.phone { display: none; }
-  .contact-phone-icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 12px; background: #0b5ed7; color: #fff; box-shadow: 0 10px 22px rgba(13,110,253,0.28); }
+  .contact-phone-icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: #e8f1ff; color: #0b5ed7; box-shadow: none; }
   .messengers a {
       justify-content: center;
   }
