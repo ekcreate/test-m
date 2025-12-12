@@ -11,7 +11,7 @@ function send_json_response($status, $message) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // === КОНФИГУРАЦИЯ ===
-    $to = "your-email@example.com"; // ЗАМЕНИТЕ НА ВАШ EMAIL
+    $to = "ek@land-torg.ru"; // ЗАМЕНИТЕ НА ВАШ EMAIL
     $subject_prefix = "Новая заявка с сайта";
     $from_email_default = "noreply@" . (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'site.com');
     $from_name_default = "Уведомление с сайта";
