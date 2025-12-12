@@ -225,13 +225,13 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
     gap: 10px;
   }
 
-  .mobile-header-controls .contact-phone-icon {
+  .mobile-header-controls .contact-phone-icon, .messengers a.icon-only {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 38px;
     height: 38px;
-    border-radius: 12px;
+    border-radius: 50%;
     background: #e8f1ff;
     color: #0b5ed7;
   }
@@ -299,7 +299,7 @@ footer { background: #0f1826; color: #d8dee9; padding: 40px 0 20px; margin-top: 
 }
 
 .logo img {
-  height: 32px;
+  height: 50px;
   width: auto;
   vertical-align: middle;
   margin-left: 5px;
